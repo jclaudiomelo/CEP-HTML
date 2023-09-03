@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="cep">
+        <button type="button" value="" onclick="buscarcep()">buscar cep</button>
+    </form>
+
+    <div class="localidade">
+        <input name="localidade" type="text" id="localidade" value="" size="10" maxlength="9" onblur="buscarcep(this.value);" >
+     </div>
+
+<script src="FETCH.JS"></script>
+</body>
+</html>
