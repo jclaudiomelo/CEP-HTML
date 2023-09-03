@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form>
@@ -11,9 +12,14 @@
         <button type="button" value="" onclick="buscarcep()">buscar cep</button>
     </form>
 
-    <div class="localidade">
-        <input name="localidade" type="text" id="localidade" value="" size="10" maxlength="9" onblur="buscarcep(this.value);" >
-     </div>
+    <div class="valoresCep">
+        <span class="logradouro"></span>
+        <span class="complemento"></span>
+        <span class="bairro"></span>
+        <span class="uf"></span>
+    </div>
+
+
 
 <script src="FETCH.JS"></script>
 </body>

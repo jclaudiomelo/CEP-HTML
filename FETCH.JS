@@ -7,9 +7,12 @@ function  buscarcep(){
         return res.json();
     })
     .then(data => {
-    // console.log(data)
+        document.querySelector('.logradouro').textContent = `Logradouro: ${data.logradouro || 'Não encontrado'}`;
+        document.querySelector('.complemento').textContent = `complemento: ${data.complemento || 'Não encontrado'}`;
+        document.querySelector('.bairro').textContent = `bairro: ${data.bairro || 'Não encontrado'}`;
+        document.querySelector('.uf').textContent = `uf: ${data.uf || 'Não encontrado'}`;
     }).catch(error => console.log(error));
-    
+
 }
 
 
@@ -24,7 +27,7 @@ function  buscarcep(){
 //         "logradouro": "Avenida Doutor Walter Gossner",
 //         "complemento": "",
 //         "bairro": "Ivoturucaia",
-//         "localidade": "Jundiaí",
+//         "bairro": "Jundiaí",
 //         "uf": "SP",
 //         "ibge": "3525904",
 //         "gia": "4078",
