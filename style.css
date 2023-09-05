@@ -1,6 +1,24 @@
+body{
+    display: flex;
+    /* align-items: center; */
+    /* justify-self:stretch; */
+}
 .valoresCep{
+    justify-content: center;
+    border: 2px solid green;
     display: flexbox;
-    background-color: aqua;
-    align-items: center;
+    margin-top: 20%;
+    background-color: chartreuse;
     
+}
+span{
+    display:flex;
+    color: rgb(26, 26, 26);
+    background-color: rgb(0, 255, 255);
+    align-items: center;
+    border: 2px solid red;
+    margin: 5px;
+    box-shadow: 2px 2px 2px greenyellow;
+    justify-content: center;
+    margin-top: 5%;
 }
