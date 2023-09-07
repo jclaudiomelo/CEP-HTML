@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Busca CEP</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+                            <h1>Digite um CEP válido para sua busca</h1>
+
+        <form>
+            <div class="busca">
+                <input type="text" placeholder="Ex: 12345-678" id="cep">
+                <button type="button" value="" onclick="buscarcep()">buscar cep</button>
+            </div>
+        </form>
+            <div style="text-transform: uppercase;" class="valoresCep">
+                <span class="logradouro"></span>
+                <span class="complemento"></span>
+                <span class="bairro"></span>
+                <span class="uf"></span>
+        </div>
+    <div class="erro">
+        <span id:"erro"></span>
+    </div>
+</div>
+
+<script src="script.JS"></script>
+
+</body>
+</html>
