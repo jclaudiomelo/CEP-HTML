@@ -15,7 +15,7 @@ function  buscarcep(){
 
 }
 
-
+/busca_cep/script.js
 
 // document.getElementById('endereco').value="...";
 // document.getElementById('bairro').value="...";

@@ -1,24 +1,43 @@
-body{
-    display: flex;
-    /* align-items: center; */
-    /* justify-self:stretch; */
-}
-.valoresCep{
-    justify-content: center;
-    border: 2px solid green;
-    display: flexbox;
-    margin-top: 20%;
-    background-color: chartreuse;
+body {
+    margin: 0;
+    background-image: url("https://static.escolakids.uol.com.br/conteudo_legenda/c15374255f16230a12fab7c8d89eee4e.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .container {
     
-}
-span{
-    display:flex;
-    color: rgb(26, 26, 26);
-    background-color: rgb(0, 255, 255);
-    align-items: center;
-    border: 2px solid red;
-    margin: 5px;
-    box-shadow: 2px 2px 2px greenyellow;
+    width: 500px;
+    min-height: 560px;
+    margin: 200px auto;
+    box-shadow: 5px 5px 4px 2px black;
+    border-radius: 20px;
+  }
+  h1 {
+    border-radius: 20px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 1px #0b0b0b;
+  }
+  .busca {
+    display: flex;
+    margin: auto;
+    padding: 30px;
+    /* background-color: blue; */
     justify-content: center;
-    margin-top: 5%;
-}
+  }
+
+  .valoresCep span {
+    display: flex;
+    
+    margin: 10px;
+    padding: 4px;
+    align-items: center;
+    background: none;
+    text-align: center;
+    border: 1px solid rgb(2, 242, 18);
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 1px #0b0b0b;
+  }

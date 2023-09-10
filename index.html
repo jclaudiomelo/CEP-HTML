@@ -1,33 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Busca CEP</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="container">
-                            <h1>Digite um CEP válido para sua busca</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busca CEP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Digite um CEP válido para sua busca</h1>
 
-        <form>
-            <div class="busca">
-                <input type="text" placeholder="Ex: 12345-678" id="cep">
-                <button type="button" value="" onclick="buscarcep()">buscar cep</button>
-            </div>
-        </form>
-            <div style="text-transform: uppercase;" class="valoresCep">
-                <span class="logradouro"></span>
-                <span class="complemento"></span>
-                <span class="bairro"></span>
-                <span class="uf"></span>
+      <form>
+        <div class="busca">
+          <input type="text" placeholder="Ex: 12345-678" id="cep" />
+          <button type="button" value="" onclick="buscarcep()">
+            buscar cep
+          </button>
         </div>
-    <div class="erro">
-        <span id:"erro"></span>
+      </form>
+      <div style="text-transform: uppercase" class="valoresCep">
+        <span class="logradouro resultado"></span>
+        <span class="complemento resultado"></span>
+        <span class="bairro resultado"></span>
+        <span class="uf resultado"></span>
+      </div>
     </div>
-</div>
+    <style>
+      .container {
+        width: 500px;
+        min-height: 560px;
+        margin: 200px auto;
+        box-shadow: 5px 5px 4px 2px black;
+        border-radius: 20px;
+      }
+      h1 {
+        border-radius: 20px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 1px #0b0b0b;
+      }
+      .busca {
+        display: flex;
+        margin: auto;
+        padding: 30px;
+        justify-content: center;
+      }
 
-<script src="script.JS"></script>
+      .valoresCep{
+        padding:0;
+        margin: 0;
+        background: none;
+        margin: 10px;
+        padding: 4px;
+       
+      }
 
-</body>
+      .resultado {
+        background-color: black;
+        color: white;
+        padding:0;
+        margin: 0;
+        border: none;
+        border-radius: 5px;
+      
+      }
+      span {
+        background-color: red;
+        
+      }
+    </style>
+    <script>// Função para buscar o CEP
+      function buscarcep() {
+        cep = document.getElementById("cep").value;
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            // Atualiza os resultados e aplica o plano de fundo preto apenas aos resultados não vazios
+            atualizarResultado("logradouro", `Logradouro: ${data.logradouro || "Não encontrado"}`);
+            atualizarResultado("complemento", `Complemento: ${data.complemento || "Não encontrado"}`);
+            atualizarResultado("bairro", `Bairro: ${data.bairro || "Não encontrado"}`);
+            atualizarResultado("uf", `UF: ${data.uf || "Não encontrado"}`);
+          })
+          .catch(function (error) {
+            console.error("Ocorreu um erro ao buscar o CEP: " + error);
+          });
+      }
+      
+      // Função para atualizar os resultados e aplicar o plano de fundo preto se houver caracteres
+      function atualizarResultado(classe, valor) {
+        const elementoResultado = document.querySelector(`.${classe}`);
+        elementoResultado.textContent = valor;
+        
+        // Verifica se o valor não está vazio (contém caracteres) e aplica o plano de fundo preto
+        if (valor !== `Logradouro: Não encontrado` && valor !== `Complemento: Não encontrado` && valor !== `Bairro: Não encontrado` && valor !== `UF: Não encontrado`) {
+          elementoResultado.style.backgroundColor = "black";
+          elementoResultado.style.color = "white";
+        } else {
+          // Se o valor estiver vazio, remova o plano de fundo preto
+          elementoResultado.style.backgroundColor = "transparent";
+          elementoResultado.style.color = "black";
+        }
+      }
+    
+    
+    </script>
+
+   
+  </body>
 </html>
